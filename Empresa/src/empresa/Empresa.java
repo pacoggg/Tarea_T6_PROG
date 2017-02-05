@@ -9,12 +9,14 @@ package empresa;
  *
  * @author Jero
  */
-public class Empresa {
+public class Empresa implements java.io.Serializable{
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
         // TODO code application logic here
     }
     
