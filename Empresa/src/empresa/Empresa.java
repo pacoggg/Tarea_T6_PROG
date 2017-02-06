@@ -5,11 +5,13 @@
  */
 package empresa;
 
+import java.io.*;
+
 /**
  *
  * @author Jero
  */
-public class Empresa implements java.io.Serializable{
+public class Empresa implements Serializable{
 
     /**
      * @param args the command line arguments
