@@ -6,6 +6,7 @@
 package empresa;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  *
@@ -40,7 +41,12 @@ public class Empresa implements Serializable{
               mod2.listar();
             break;
             case 3:
-            System.out.printf ("No implementado aun\n");
+                Scanner entrada=new Scanner(System.in);
+                System.out.print("Ingrese NIF a buscar: ");
+                String bal = entrada.next();
+            modulos mod3=new modulos();
+              mod3.buscar(bal);
+            //System.out.printf ("No implementado aun\n");
             break;
             case 4:
             System.out.printf ("No implementado aun\n");

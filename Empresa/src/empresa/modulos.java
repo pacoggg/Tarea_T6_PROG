@@ -6,6 +6,7 @@
 package empresa;
 
 import java.io.*;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -18,7 +19,8 @@ public class modulos {
    private String telefono;
    private String direccion;
    private String deuda;
-
+   String datos[]= {"NIF: ","NOMBRE: ","TELEFONO: ","DIRECCION: ","DEUDA: "};
+   String cliente_datos[]=new String[5];
     public modulos() {
     }
 
@@ -39,11 +41,12 @@ public class modulos {
     fich = new FileWriter(f,true);
     bw= new BufferedWriter(fich);
     pw = new PrintWriter(bw);
-    pw.write("NIF: "+nif+" "+"NOMBRE: "+nombre+" "+"TELEFONO: "+telefono+" "+"DIRECCION: "+direccion+" "+"DEUDA: "+deuda+"\n");
+    pw.write(nif+"-"+nombre+"-"+telefono+"-"+direccion+"-"+deuda+"\n");
     pw.close();
     bw.close();
-    
+    //pw.write("NIF: "+nif+" "+"NOMBRE: "+nombre+" "+"TELEFONO: "+telefono+" "+"DIRECCION: "+direccion+" "+"DEUDA: "+deuda+"\n");
    }
+   
    public void listar() throws IOException{
        File f;
        FileReader fr;
@@ -53,11 +56,46 @@ public class modulos {
        fr=new FileReader(f);
        br=new BufferedReader(fr);
        String linea;
+       int reg=1;
        while((linea=br.readLine())!=null){
-           System.out.println(linea); 
-       }
+        System.out.println(" ---------------- Registro "+reg+": ------------------");
+        StringTokenizer st = new StringTokenizer(linea,"-");
+        int s=st.countTokens();
+        for (int r=0;r<s;r++){
+            System.out.println(datos[r]+st.nextToken());   
+        }
+        reg++;
+        }
        br.close();
        fr.close();
+   }
+   public void buscar(String baliza) throws IOException{
+      File f;
+       FileReader fr;
+       BufferedReader br;
+       
+       f= new File("clientes.dat");
+       fr=new FileReader(f);
+       br=new BufferedReader(fr);
+       String linea;
+       int reg=1;
+       while((linea=br.readLine())!=null){
+           System.out.println(" ---------------- Registro "+reg+": ------------------");
+        StringTokenizer st = new StringTokenizer(linea,"-");
+        int s=st.countTokens();
+        for (int r=0;r<s;r++){
+            cliente_datos[r]=st.nextToken();
+         }
+        //String baliza = "07877298M";
+           if (cliente_datos[0].equals(baliza)) {
+        for (int r1=0;r1<s;r1++){
+        System.out.println(datos[r1]+cliente_datos[r1]);
+        }
+        }else System.out.println("El registro no coincide con lo solicitado");
+        reg++;
+       }
+       br.close();
+       fr.close(); 
    }
    
 }
