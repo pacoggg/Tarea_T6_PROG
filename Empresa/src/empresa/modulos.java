@@ -9,7 +9,7 @@ import java.io.*;
 
 /**
  *
- * @author Montse
+ * @author Paco G.
  */
 public class modulos {
    
@@ -42,7 +42,7 @@ public class modulos {
     pw.write("NIF: "+nif+" "+"NOMBRE: "+nombre+" "+"TELEFONO: "+telefono+" "+"DIRECCION: "+direccion+" "+"DEUDA: "+deuda+"\n");
     pw.close();
     bw.close();
-    //nif+"%"+nombre+"%"+telefono+"%"+direccion+"%"+deuda+"/n"
+    
    }
    public void listar() throws IOException{
        File f;
