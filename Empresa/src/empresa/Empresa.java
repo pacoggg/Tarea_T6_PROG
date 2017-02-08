@@ -71,9 +71,19 @@ public class Empresa implements Serializable {
         for (int cl = 0; cl <= 4; cl++) {
             switch (cl) {
                 case 0:
-                    System.out.println("Introduce NIF");
-                    String nif = lecturaTeclado();
-                    cliente[cl] = nif;
+                    String nif = null;
+                    do {
+                        System.out.println("Introduce NIF");
+                        
+                        try {
+                            nif = Herramientas.comprobarDNI(lecturaTeclado().toUpperCase());
+                        } catch (Exception e) {
+                            System.err.println(e.getMessage());
+                        }
+                        
+                        cliente[cl] = nif;
+                    } while (nif == null);
+
                     break;
                 case 1:
                     System.out.println("Introduce Nombre");
@@ -102,6 +112,7 @@ public class Empresa implements Serializable {
         System.out.println("Nuevo cliente añadido.");
 
     }
+
     //---------------------------------------------------------------
     // MÉTODO lecturaTeclado: Captura de una cadena de teclado
     //---------------------------------------------------------------
