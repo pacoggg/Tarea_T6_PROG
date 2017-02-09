@@ -44,8 +44,7 @@ public class modulos {
     pw.write(nif+"-"+nombre+"-"+telefono+"-"+direccion+"-"+deuda+"\n");
     pw.close();
     bw.close();
-    //pw.write("NIF: "+nif+" "+"NOMBRE: "+nombre+" "+"TELEFONO: "+telefono+" "+"DIRECCION: "+direccion+" "+"DEUDA: "+deuda+"\n");
-   }
+    }
    
    public void listar() throws IOException{
        File f;
