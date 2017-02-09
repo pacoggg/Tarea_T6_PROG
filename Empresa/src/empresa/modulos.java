@@ -33,6 +33,7 @@ public class modulos {
     }
     
    public void escribir() throws IOException{
+    try {
     File f;
     FileWriter fich;
     BufferedWriter bw;
@@ -44,10 +45,14 @@ public class modulos {
     pw.write(nif+"-"+nombre+"-"+telefono+"-"+direccion+"-"+deuda+"\n");
     pw.close();
     bw.close();
+    }catch(IOException e)
+        {
+            e.getStackTrace();
+         }
     }
    
    public void listar() throws IOException{
-       File f;
+       try {File f;
        FileReader fr;
        BufferedReader br;
        
@@ -67,9 +72,14 @@ public class modulos {
         }
        br.close();
        fr.close();
+       }catch(IOException e)
+        {
+            e.getStackTrace();
+         }
    }
    public void buscar(String baliza) throws IOException{
-      File f;
+      try {
+       File f;
        FileReader fr;
        BufferedReader br;
        
@@ -85,8 +95,7 @@ public class modulos {
         for (int r=0;r<s;r++){
             cliente_datos[r]=st.nextToken();
          }
-        //String baliza = "07877298M";
-           if (cliente_datos[0].equals(baliza)) {
+        if (cliente_datos[0].equals(baliza)) {
         for (int r1=0;r1<s;r1++){
         System.out.println(datos[r1]+cliente_datos[r1]);
         }
@@ -94,7 +103,11 @@ public class modulos {
         reg++;
        }
        br.close();
-       fr.close(); 
+       fr.close();
+       }catch(IOException e)
+        {
+            e.getStackTrace();
+         }
    }
-   
+      
 }
