@@ -52,7 +52,16 @@ public class Empresa implements Serializable{
             System.out.printf ("No implementado aun\n");
             break;
             case 5:
-            System.out.printf ("No implementado aun\n");
+                
+                Scanner borrar=new Scanner (System.in);
+                System.out.println("Estas seguro de borrar el archivo?(s/n)");
+                String borr=borrar.next();
+                if ("s".equals(borr)){
+                File f= new File("clientes.dat");
+                if(f.delete()){
+                    System.out.println("Archivo borrado correctamente.");
+                }
+                }else System.out.printf ("Archivo no borrado.\n");
             break;
             case 0:
             System.out.printf ("Fin de la aplicación...\n");
