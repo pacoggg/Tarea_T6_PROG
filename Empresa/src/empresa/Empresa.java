@@ -181,12 +181,13 @@ public class Empresa implements Serializable{
  }
  public static void escribir_archivo (ArrayList<String> list) throws IOException{
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("clientes.dat"));
-            for(String x:list)
-            {
-                writer.write(x);
-                writer.newLine();
-            } 
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("clientes.dat"))) {
+                for(String x:list)
+                {
+                    writer.write(x);
+                    writer.newLine();
+                }
+            }
         }catch(IOException e)
         {
             e.getStackTrace();
