@@ -87,9 +87,7 @@ public class modulos {
        fr=new FileReader(f);
        br=new BufferedReader(fr);
        String linea;
-       int reg=1;
        while((linea=br.readLine())!=null){
-           System.out.println(" ---------------- Registro "+reg+": ------------------");
         StringTokenizer st = new StringTokenizer(linea,"-");
         int s=st.countTokens();
         for (int r=0;r<s;r++){
@@ -99,8 +97,7 @@ public class modulos {
         for (int r1=0;r1<s;r1++){
         System.out.println(datos[r1]+cliente_datos[r1]);
         }
-        }else System.out.println("El registro no coincide con lo solicitado");
-        reg++;
+        }
        }
        br.close();
        fr.close();
