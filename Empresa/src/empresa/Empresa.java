@@ -108,30 +108,21 @@ public class Empresa implements Serializable{
     public static void nuevo_cliente() throws IOException, Exception{
         String[] datos = new String[5];
         String[] cliente = new String[5];
-        for (int cl=0;cl<=4;cl++){
-          switch(cl){
-              case 0: System.out.println("Introduce NIF");
+              System.out.println("Introduce NIF");
               String nif = lecturaTeclado();
-              cliente[cl]=nif;
-              break;
-              case 1: System.out.println("Introduce Nombre");
+              cliente[0]=nif;
+              System.out.println("Introduce Nombre");
               String nombre = lecturaTeclado();
-              cliente[cl]=nombre;
-              break;
-              case 2: System.out.println("Introduce Telefono");
+              cliente[1]=nombre;
+              System.out.println("Introduce Telefono");
               String telefono = lecturaTeclado();
-              cliente[cl]=telefono;
-              break;
-              case 3: System.out.println("Introduce Direccion");
+              cliente[2]=telefono;
+              System.out.println("Introduce Direccion");
               String direccion = lecturaTeclado();
-              cliente[cl]=direccion;
-              break;
-              case 4: System.out.println("Introduce Deuda");
+              cliente[3]=direccion;
+              System.out.println("Introduce Deuda");
               String deuda = lecturaTeclado();
-              cliente[cl]=deuda;
-              break;
-          }  
-        }
+              cliente[4]=deuda;
         modulos mod=new modulos(cliente[0],cliente[1],cliente[2],cliente[3],cliente[4]);
        mod.escribir();
             System.out.println("Nuevo cliente añadido.");
